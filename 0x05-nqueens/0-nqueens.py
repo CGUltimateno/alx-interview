@@ -4,42 +4,20 @@ import sys
 
 
 def is_safe(board, row, col):
-    """
-  Checks if a queen can be placed at the given row and column without attacking other queens.
-  """
-    for i in range(col):
-        if board[row][i] == 1:
-            return False
-    for i in range(row):
-        if board[i][col] == 1:
-            return False
+    """n queen """
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        exit(1)
 
-    i, j = row, col
-    while i >= 0 and j >= 0:
-        if board[i][j] == 1:
-            return False
-        i -= 1
-        j -= 1
-    i, j = row, col
-    while i < len(board) and j >= 0:
-        if board[i][j] == 1:
-            return False
-        i += 1
-        j -= 1
-    return True
+    X = int(sys.argv[1])
+    try:
+        if X < 4:
+            print("N must be at least 4")
+            exit(1)
+    except ValueError:
+        print("N must be a number")
+        exit(1)
 
 
-def solve_n_queens(board, col):
-    """
-  Solves the N-queens problem using backtracking.
-  """
-    if col >= len(board):
-        for row in board:
-            print("".join(['Q' if x == 1 else '.' for x in row]))
-        return
-
-    for i in range(len(board)):
-        if is_safe(board, i, col):
-            board[i][col] = 1
-            solve_n_queens(board, col + 1)
-            board[i][col] = 0
+if __name__ == '__main__':
+    is_safe()

@@ -8,8 +8,9 @@ if __name__ == "__main__":
         print("Usage: nqueens N")
         exit(1)
 
-    N = int(sys.argv[1])
+    N = sys.argv[1]
     try:
+        N = int(N)
         if N < 4:
             print("N must be at least 4")
             exit(1)

@@ -4,14 +4,11 @@ import sys
 
 
 def is_safe(board, row, col, n):
-    """Check if a queen can be placed on board[row][col]"""
+    """The N queens puzzle is the challenge of placing N
+    non-attacking queens on an N×N chessboard.
+    Write a program that solves the N queens problem"""
     for i in range(col):
-        if board[row][i]:
-            return False
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j]:
-            return False
-    for i, j in zip(range(row, n, 1), range(col, -1, -1)):
-        if board[i][j]:
+        if board[i] == row or board[i] == row - col + i or board[i] == row + col - i:
             return False
     return True
+

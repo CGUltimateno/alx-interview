@@ -3,21 +3,16 @@
 import sys
 
 
-def is_safe(board, row, col):
-    """n queen """
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         exit(1)
 
-    X = int(sys.argv[1])
+    N = int(sys.argv[1])
     try:
-        if X < 4:
+        if N < 4:
             print("N must be at least 4")
             exit(1)
     except ValueError:
         print("N must be a number")
         exit(1)
-
-
-if __name__ == '__main__':
-    is_safe()

@@ -20,7 +20,7 @@ def is_safe(board, row, col, n) -> bool:
     return True
 
 
-def solve(board, col, n) -> bool:
+def solve(board, col, n, ans) -> bool:
     """Solve the N queens problem"""
     if col == n:
         print([[i, row.index(1)] for i, row in enumerate(board)])
@@ -30,7 +30,7 @@ def solve(board, col, n) -> bool:
     for i in range(n):
         if is_safe(board, i, col, n):
             board[i][col] = 1
-            res = solve(board, col + 1, n) or res
+            res = solve(board, col + 1, n, ans) or res
             board[i][col] = 0
 
     return res
@@ -48,8 +48,7 @@ def nqueens(n):
 
     board = [[0] * n for _ in range(n)]
     solutions = []
-    solve(board, 0, n)
-
+    solve(board, 0, n, solutions)
     for solution in solutions:
         print(solution)
 

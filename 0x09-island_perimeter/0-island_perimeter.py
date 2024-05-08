@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/python3
 """
 a function Island Perimeter that returns the perimeter of the
 island described in grid
@@ -7,7 +7,7 @@ island described in grid
 
 def island_perimeter(grid):
     """
-    grid is a list of list of integers:
+    grid is a list of integers:
     0 represents a water zone
     1 represents a land zone
     Each cell is square, with a side length of 1

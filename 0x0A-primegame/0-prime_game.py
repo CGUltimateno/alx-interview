@@ -14,13 +14,13 @@ def is_prime(n):
     return primeNos
 
 
-def prime_game(n, m):
+def isWinner(x, nums):
     """Determine who wins the game."""
-    if n is None or m is None or n == 0 or m == []:
+    if x is None or nums is None or x == 0 or nums == []:
         return None
     Maria = Ben = 0
-    for i in range(n):
-        primeNos = is_prime(m[i])
+    for i in range(x):
+        primeNos = is_prime(nums[i])
         if len(primeNos) % 2 == 0:
             Ben += 1
         else:
